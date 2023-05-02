@@ -4,14 +4,15 @@ import avatar from "../../img/avatar.png";
 import { menuItems } from "../../utils/menuItems";
 import { signout } from "../../utils/Icons";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../connections/firebase";
 
 function Navigation({ active, setActive }) {
   //SignOut click sends back to Sign in page
-  const navigate = useNavigate();
+  /* const navigate = useNavigate();
 
   const navigateToLogin = () => {
     navigate("/");
-  };
+  }; */
 
   return (
     <NavStyled>
@@ -37,7 +38,8 @@ function Navigation({ active, setActive }) {
         })}
       </ul>
       <div className="bottom-nav">
-        <li onClick={navigateToLogin}>{signout} Sign Out</li>
+        {/* <li onClick={navigateToLogin}>{signout} Sign Out</li> */}
+        <li onClick={() => auth.signOut()}>{signout} Sign Out</li>
       </div>
     </NavStyled>
   );
